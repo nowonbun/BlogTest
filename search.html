@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <meta name="theme-color" content="#29343a">
-<title>明月の開発ストーリ :: Dev / C#</title>
+<title>明月の開発ストーリ</title>
 <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css">
 <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -51,7 +51,7 @@
 			</ul>
 		</div>
 		<div class="form-inline my-2 my-lg-0 search-custom side-search" style="padding: 5px;">
-			<input class="form-control mr-sm-2 search-text" type="search" placeholder="Search" aria-label="Search" style="width:65%">
+			<input class="form-control mr-sm-2 search-text" type="search" placeholder="Search" aria-label="Search" style="width: 65%">
 			<button class="btn btn-outline-success my-2 my-sm-0 search-btn" type="submit">Search</button>
 		</div>
 		<div class="side-list">
@@ -66,9 +66,9 @@
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 list-area-panel">
 			<div class="searchList">
 				<h3>
-					<span>Dev / C#</span> 検索結果
+					<span id="searchTitle"></span> 検索結果
 				</h3>
-				<p>検索件数 : <span id="searchResultCount"></span> 件</p>
+				<p>検索件数 : <span id="searchResultCount"></span>　件</p>
 			</div>
 			<div class="list-area"></div>
 		</div>
@@ -82,12 +82,12 @@
 								<p class="list-summary"></p>
 							</a>
 							<div class="list-meta ie-dotum">
-								<p><span class="timeago ff-h dt-published tag-column"></span></p> 
 								<p>
-									<span class="data-column-label">作成日付 :</span>
-									<span class="timeago ff-h dt-published date-column create-date"></span>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<span class="data-column-label">修正日付 :</span>
+									<span class="data-column-label">カテゴリ :</span>
+									<span class="timeago ff-h dt-published category-column"></span>
+								</p> 
+								<p>
+									<span class="data-column-label">最終修正日付 :</span>
 									<span class="timeago ff-h dt-published date-column update-date"></span>
 								</p>
 							</div>
@@ -96,8 +96,7 @@
 				</div>
 			</article>
 		</template>
-		<input type="hidden" id="JsonFileName" value="./Csharp.json">
-		<script type="text/javascript" src="./js/listscreen.js"></script>
+		<script type="text/javascript" src="./js/searchscreen.js"></script>
 	</div>
 </body>
 </html>
