@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="theme-color" content="#29343a">
+<title>明月の開発ストーリ :: [C#] Thread(スレッド)</title>
+<!-- link rel="stylesheet" type="text/css" href="./css/blog/style.css"-->
+<!-- https://getbootstrap.com/docs/3.3/getting-started/ -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css">
+<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+<link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css">
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/github.min.css">
+<link rel="stylesheet" type="text/css" href="./css/highlight.init.css">
+<link rel="stylesheet" type="text/css" href="./css/loader.css">
+<link rel="stylesheet" type="text/css" href="./css/common.css">
+<link rel="stylesheet" type="text/css" href="./css/post.css">
+
+<script src="//code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
+<script type="text/javascript" src="./js/common.js"></script>
+</head>
+<body>
+	<div class="loader off"></div>
+	<section class="loader-layout off"></section>
+	<nav class="navbar navbar-expand-lg nav-costom">
+		<button class="menu-toggle" type="button">MENU</button>
+		<a class="navbar-brand navbar-brand-flex-left" href="./" style="color: #000;">明月の開発ストーリ</a>
+	</nav>
+	<aside class="leftside">
+		<h5 class="side-header">
+			<img src="https://t1.daumcdn.net/cfile/tistory/1935C94C505D9F8B13">明月の開発ストーリ
+		</h5>
+		<div class="side-menu bs-glyphicons">
+			<ul class="bs-glyphicons-list">
+				<li onclick="location.href='./';"><span class="fa fa-home" aria-hidden="true" title="Home"></span> <span>Home</span></li>
+				<li><span class="fa fa-minus" aria-hidden="true" title="..."></span><span>...</span></li>
+				<li><span class="fa fa-minus" aria-hidden="true" title="..."></span><span>...</span></li>
+				<li><span class="fa fa-minus" aria-hidden="true" title="..."></span><span>...</span></li>
+				<li class="menu-close"><span class="fa fa-times" aria-hidden="true" title="Close"></span> <span>Close</span></li>
+				<li class="menu-close-off"><span class="fa fa-minus" aria-hidden="true" title="..."></span> <span>...</span></li>
+			</ul>
+		</div>
+		<div class="form-inline my-2 my-lg-0 search-custom side-search" style="padding: 5px;">
+			<input class="form-control mr-sm-2 search-text" type="search" placeholder="Search" aria-label="Search" style="width: 65%">
+			<button class="btn btn-outline-success my-2 my-sm-0 search-btn" type="submit">Search</button>
+		</div>
+		<div class="side-list">
+			<ul class="side-nav"><li class=""><a class="link_item link-item-collapse category-item" href="javascript:void(0)">Dev<span class="fa fa-chevron-down pull-right"></span></a><ul class="sub_category_list off"><li class=""><a class="link_sub_item category-item" data-code="0101" href="./?category=0101">Java</a></li><li class=""><a class="link_sub_item category-item" data-code="0102" href="./?category=0102">C#</a></li></ul></li><li class=""><a class="link_item link-item-collapse category-item" data-code="9900" href="./?category=9900">Other</a></li><li class=""><a class="link_item link-item-collapse category-item" href="javascript:void(0)">Study<span class="fa fa-chevron-down pull-right"></span></a><ul class="sub_category_list off"><li class=""><a class="link_sub_item category-item" data-code="0201" href="./?category=0201">php</a></li><li class=""><a class="link_sub_item category-item" data-code="0202" href="./?category=0202">python</a></li></ul></li>
+			</ul>
+		</div>
+	</aside>
+	<section class="menu-back-layout menu-close off"></section>
+	<div class="container-fluid main-container">
+		<!-- 메인 -->
+		<article class="entry post">
+			<div class="titleArea">
+				<div class="title" id="article_title">
+					<h1 id="titleTxt">[C#] Thread(スレッド)</h1>
+				</div>
+				<hr class="titileHr">
+				<div class="categoryArea">
+					<a href="./java.html">Dev / Java</a> &nbsp;&nbsp; 作成日付 : 2019/06/14 19:51:26 &nbsp;&nbsp;修正日付 : 2019/06/14 19:51:26
+				</div>
+			</div>
+			<div class="article">
+				<div class="tt_article_useless_p_margin" id="article_contents"><html>
+ <head></head>
+ <body>
+  <p style="text-align:center;display:none;" class="titleImage"><img src="//nowonbun.github.io/googleblog/csharp.png" style="border:2px solid black;"></p> 
+  <p>こんにちは。明月です。<br> 今日は「Thread」(スレッド)に関して勉強します。</p> 
+  <br> 
+  <h2><b><span>Thread(スレッド)</span></b></h2> 
+  <br> 
+  <p>プログラムを扱ってある方なら、特にアプリの関して開発したことがある方ならスレッドについて一回以上に聞いたことがあると思います。<br> スレッドを定義するとプログラムを実行する最小の単位として一つのプロセス(プログラム)の中で一つ以上のスレッドを動かすことができまして並列処理をするように作成する要素だと思います。 </p> 
+  <br> 
+  <p>MSDNリンク - <a href="//msdn.microsoft.com/ko-kr/library/system.threading.thread(v=vs.110).aspx " target="_blank">Thread(スレッド)</a></p> 
+  <br> 
+  <p>説明が難しいですが、例を通って続きます。</p> 
+  <br> 
+  <div style="border-style:solid;" class="sourcecode"> 
+   <textarea name="code" class="brush:csharp;"> 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+
+namespace ThreadExample
+{
+    class Program
+    {
+        /// &lt;summary&gt;
+        /// コンストラクタ
+        /// &lt;/summary&gt;
+        public Program()
+        {
+            //Test1 - 0 から Test1 - 100まで出力する。
+            ThreadEx("Test1");
+            //Test2 - 0 から Test2 - 100まで出力する。
+            ThreadEx("Test2");
+            //Test3 - 0 から Test3 - 100まで出力する。
+            ThreadEx("Test3");
+        }
+        /// &lt;summary&gt;
+        /// コンストラクタから呼ばれるメソッド
+        /// &lt;/summary&gt;
+        /// &lt;param name="name"&gt;&lt;/param&gt;
+        public void ThreadEx(String name)
+        {
+            //iが100までコンソールに出力する。
+            for (int i = 0; i &lt; 100; i++)
+            {
+                Console.WriteLine(String.Format("{0} - {1}", name, i));
+                Thread.Sleep(10);
+            }
+        }
+        /// &lt;summary&gt;
+        /// メインメソッド
+        /// &lt;/summary&gt;
+        /// &lt;param name="args"&gt;&lt;/param&gt;
+        static void Main(String[] args)
+        {
+            new Program();
+
+            Console.WriteLine("Press Any Key...");
+            Console.ReadLine();
+        }
+    }
+}
+</textarea> 
+  </div> 
+  <br> 
+  <p>上の例を見ると我々は「ThreadEx(“Test1”)」、「ThreadEx(“Test2”)」、「ThreadEx(“Test3”)」の順に実行することはよく知っています。</p> 
+  <br> 
+  <p style="text-align:left;"><img src="//nowonbun.github.io/googleblog/post201608/20160801/firstEx.png" style="border:2px solid black;"></p> 
+  <br> 
+  <p>でも、プログラムを作成する時にパフォーマンスとためにあるいは他の理由のために、上のメソッドを同時に実行する時があります。</p> 
+  <br> 
+  <div style="border-style:solid;" class="sourcecode"> 
+   <textarea name="code" class="brush:csharp;"> 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+
+namespace ThreadExample
+{
+    class Program
+    {
+        //メインのプロセススレッドと別のスレッドに動くので終了する前に同期化する必要があります。
+        //そのため、リストの形式で管理する。
+        LinkedList&lt;Thread&gt; threadList = new LinkedList&lt;Thread&gt;();
+        /// &lt;summary&gt;
+        /// コンストラクタ
+        /// &lt;/summary&gt;
+        public Program()
+        {
+            //スレッド追加
+            AddThread(ThreadEx, "Test1");
+            AddThread(ThreadEx, "Test2");
+            AddThread(ThreadEx, "Test3");
+
+            //メインスレッドと同期化
+            StartWatchThread();
+        }
+        /// &lt;summary&gt;
+        /// スレッド追加メソッド
+        /// &lt;/summary&gt;
+        /// &lt;param name="method"&gt;デリゲート名&lt;/param&gt;
+        /// &lt;param name="data"&gt;パラメタ値&lt;/param&gt;
+        private void AddThread(Action&lt;String&gt; method, String data)
+        {
+            //スレッドを割り当て
+            Thread _thread = new Thread(() =&gt; { method(data); });
+            //スレッドを開始
+            _thread.Start();
+            //リストにスレッド追加
+            threadList.AddFirst(_thread);
+        }
+        /// &lt;summary&gt;
+        /// スレッド同期メソッド
+        /// &lt;/summary&gt;
+        private void StartWatchThread()
+        {
+            //threadListにあるスレッドが終わらないと無限ループになります。
+            while (threadList.Count &gt; 0)
+            {
+                if (threadList.First.Value.IsAlive)
+                {
+                    Thread.Sleep(1000);
+                }
+                else
+                {
+                    //スレッドが終わるとリストから削除
+                    threadList.RemoveFirst();
+                }
+            }
+            //threadListにスレッドがなくなると終わり
+        }
+        /// &lt;summary&gt;
+        /// 処理メソッド
+        /// &lt;/summary&gt;
+        /// &lt;param name="name"&gt;&lt;/param&gt;
+        public void ThreadEx(String name)
+        {
+            //iが100までコンソールに出力する。
+            for (int i = 0; i &lt; 100; i++)
+            {
+                Console.WriteLine(String.Format("{0} - {1}", name, i));
+                Thread.Sleep(10);
+            }
+        }
+        /// &lt;summary&gt;
+        /// メインメソッド
+        /// &lt;/summary&gt;
+        /// &lt;param name="args"&gt;&lt;/param&gt;
+        static void Main(String[] args)
+        {
+            new Program();
+
+            Console.WriteLine("Press Any Key...");
+            Console.ReadLine();
+        }
+    }
+}
+</textarea> 
+  </div> 
+  <br> 
+  <p style="text-align:left;"><img src="//nowonbun.github.io/googleblog/post201608/20160801/secondEx.png" style="border:2px solid black;"></p> 
+  <br> 
+  <p>上のソースを参照して結果を見ると「ThreadEx(“Test1”)」、「ThreadEx(“Test2”)」、「ThreadEx(“Test3”)」を順で呼び出しましたが、処理は順番通りではなく、同時に処理にするみたいにみえること、すなわち、並列に処理することで見えます。<br> スレッドを呼ばれた後に「StartWatchThread」を関数を呼ばれる部分があります。スレッド処理の中では「Program」のコンストラクタも一つのスレッドになるため、「ThreadEx(“Test1”)」、「ThreadEx(“Test2”)」、「ThreadEx(“Test3”)」をスレッド並列処理をすると各関数が終わる前に「Program」のコンストラクタが終わってしまう現象になるはずです。<br> そのため、「StartWatchThread」の関数は各スレッドが終わる時まで待つ処理、すなわち、メインスレッドがサブスレッドを待つ処理、改めていうと同期化処理を実装しています。</p> 
+  <br> 
+  <p>これからスレッドを使うことでプログラムのパフォーマンスがどのくらいに改善することができるかを確認しましょう。</p> 
+  <br> 
+  <div style="border-style:solid;" class="sourcecode"> 
+   <textarea name="code" class="brush:csharp;"> 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+
+namespace ThreadExample
+{
+    class Program
+    {
+        //メインのプロセススレッドと別のスレッドに動くので終了する前に同期化する必要があります。
+        //そのため、リストの形式で管理する。
+        LinkedList&lt;Thread&gt; threadList = new LinkedList&lt;Thread&gt;();
+        /// &lt;summary&gt;
+        /// コンストラクタ
+        /// &lt;/summary&gt;
+        public Program()
+        {
+            //開始する前のtick
+            long tick = DateTime.Now.Ticks;
+            //単一のメインスレッドで順番通りに呼ばれる時
+            ThreadEx("Test1");
+            ThreadEx("Test2");
+            ThreadEx("Test3");
+            long t1 = DateTime.Now.Ticks - tick;
+
+            //開始する前のtick
+            tick = DateTime.Now.Ticks;
+            //スレッド追加
+            AddThread(ThreadEx, "Test1");
+            AddThread(ThreadEx, "Test2");
+            AddThread(ThreadEx, "Test3");
+
+            //メインスレッドと同期化
+            StartWatchThread();
+            long t2 = DateTime.Now.Ticks - tick;
+
+            //単一のスレッド時間(Ticks)
+            Console.WriteLine(t1);
+            //各スレッドで並列したときの時間(Ticks)
+
+            Console.WriteLine(t2);
+        }
+        /// &lt;summary&gt;
+        /// スレッド追加メソッド
+        /// &lt;/summary&gt;
+        /// &lt;param name="method"&gt;デリゲート名&lt;/param&gt;
+        /// &lt;param name="data"&gt;パラメタ値&lt;/param&gt;
+        private void AddThread(Action&lt;String&gt; method, String data)
+        {
+            //スレッドを割り当て
+            Thread _thread = new Thread(() =&gt; { method(data); });
+            //スレッドを開始
+            _thread.Start();
+            //リストにスレッド追加
+            threadList.AddFirst(_thread);
+        }
+        /// &lt;summary&gt;
+        /// スレッド同期メソッド
+        /// &lt;/summary&gt;
+        private void StartWatchThread()
+        {
+            //threadListにあるスレッドが終わらないと無限ループになります。
+            while (threadList.Count &gt; 0)
+            {
+                if (threadList.First.Value.IsAlive)
+                {
+                    Thread.Sleep(1000);
+                }
+                else
+                {
+                    //スレッドが終わるとリストから削除
+                    threadList.RemoveFirst();
+                }
+            }
+            //threadListにスレッドがなくなると終わり
+        }
+        /// &lt;summary&gt;
+        /// 処理メソッド
+        /// &lt;/summary&gt;
+        /// &lt;param name="name"&gt;&lt;/param&gt;
+        public void ThreadEx(String name)
+        {
+            //iが100までコンソールに出力する。
+            for (int i = 0; i &lt; 100; i++)
+            {
+                Console.WriteLine(String.Format("{0} - {1}", name, i));
+                Thread.Sleep(10);
+            }
+        }
+        /// &lt;summary&gt;
+        /// メインメソッド
+        /// &lt;/summary&gt;
+        /// &lt;param name="args"&gt;&lt;/param&gt;
+        static void Main(String[] args)
+        {
+            new Program();
+
+            Console.WriteLine("Press Any Key...");
+            Console.ReadLine();
+        }
+    }
+}
+</textarea> 
+  </div> 
+  <br> 
+  <p style="text-align:left;"><img src="//nowonbun.github.io/googleblog/post201608/20160801/thirdEx.png" style="border:2px solid black;"></p> 
+  <br> 
+  <p>上のソースを見るとスレッドを使わない処理時間(始めの例)とスレッドを使った処理時間(二つ目の例)を比較してみると約3倍に早くなることの結果が出ます。<br> スレッドを使うと必ずパフォーマンス改善になって処理速度がアップすることではないけれども、上の例はIOみたいに処理パフォーマンスと関係がある要素は明確に処理時間の差が見えます。</p> 
+  <br> 
+  <p>上の例をみるとスレッドを使うことがそんなに難しくなさそうだし、簡単に使えそうですね。でも実際プロジェクトする時にスレッドを簡単につかえられないし、みんなスレッドはプログラム処理の中で一番に難しいんだと言う方がいますが、その理由は同期化のせいです。</p> 
+  <br> 
+  <h2><b><span>lock</span></b></h2> 
+  <br> 
+  <div style="border-style:solid;" class="sourcecode"> 
+   <textarea name="code" class="brush:csharp;"> 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+
+namespace ThreadExample
+{
+    class Program
+    {
+        //メインのプロセススレッドと別のスレッドに動くので終了する前に同期化する必要があります。
+        //そのため、リストの形式で管理する。
+        LinkedList&lt;Thread&gt; threadList = new LinkedList&lt;Thread&gt;();
+        //スレッドのデータを合計
+        int count = 0;
+        /// &lt;summary&gt;
+        /// コンストラクタ
+        /// &lt;/summary&gt;
+        public Program()
+        {
+            //スレッド追加
+            AddThread(ThreadEx, "Test1");
+            AddThread(ThreadEx, "Test2");
+            AddThread(ThreadEx, "Test3");
+
+            StartWatchThread();
+
+            Console.WriteLine("Count - " + count);
+        }
+        /// &lt;summary&gt;
+        /// スレッド追加メソッド
+        /// &lt;/summary&gt;
+        /// &lt;param name="method"&gt;デリゲート名&lt;/param&gt;
+        /// &lt;param name="data"&gt;パラメタ値&lt;/param&gt;
+        private void AddThread(Action&lt;String&gt; method, String data)
+        {
+            //スレッドを割り当て
+            Thread _thread = new Thread(() =&gt;
+            {
+                method(data);
+            });
+            //スレッドを開始
+            _thread.Start();
+            //リストにスレッド追加
+            threadList.AddFirst(_thread);
+        }
+        /// &lt;summary&gt;
+        /// スレッド同期メソッド
+        /// &lt;/summary&gt;
+        private void StartWatchThread()
+        {
+            //threadListにあるスレッドが終わらないと無限ループになります。
+            while (threadList.Count &gt; 0)
+            {
+                if (threadList.First.Value.IsAlive)
+                {
+                    Thread.Sleep(1000);
+                }
+                else
+                {
+                    //スレッドが終わるとリストから削除
+                    threadList.RemoveFirst();
+                }
+            }
+            //threadListにスレッドがなくなると終わり
+        }
+        /// &lt;summary&gt;
+        /// 処理メソッド
+        /// &lt;/summary&gt;
+        /// &lt;param name="name"&gt;&lt;/param&gt;
+        public void ThreadEx(String name)
+        {
+            //iが100までコンソールに出力する。
+            for (int i = 0; i &lt; 100; i++)
+            {
+                int temp = count + i;
+                Console.WriteLine(String.Format("{0} - {1}", name, i));
+                
+                //スレッドの中で処理するたびにcount値を１ずつ増加
+                count = temp;
+            }
+        }
+        /// &lt;summary&gt;
+        /// メインメソッド
+        /// &lt;/summary&gt;
+        /// &lt;param name="args"&gt;&lt;/param&gt;
+        static void Main(String[] args)
+        {
+            new Program();
+
+            Console.WriteLine("Press Any Key...");
+            Console.ReadLine();
+        }
+    }
+}
+</textarea> 
+  </div> 
+  <br> 
+  <p>上の例をみるとメンバ変数に「count」を割り当て「ThreadEx」のメソッドの中で「i」の値を増加しています。それで、我々が予想するデータ値は(0 ~ 99までの合計) * 3倍になりますね。(1 ~ 100まで合計は5050(101*50) – 100 = 4950で3倍は14850)</p> 
+  <br> 
+  <p style="text-align:left;"><img src="//nowonbun.github.io/googleblog/post201608/20160801/lockEx.png" style="border:2px solid black;"></p> 
+  <br> 
+  <p>でも実際の結果を見ると値が「14850」ではないですね。もっと大変なことは実行するたびに値が一定値ではなく値が変わります。理由としては3つのスレッドが並列で流れているせいに発生することです。すなわち、「count」から取得値、または格納する時に3つスレッド達がお互いに影響されるためです。<br> 改めていうと、「ThradEx(“Test1”)」のスレッドが実行する時に「count」を取得して「temp」に格納して再格納する前に「ThradEx(“Test2”)」で取得、「ThradEx(“Test1”)」で「count」にデータを１を増加して格納しますが、「ThradEx(“Test2”)」で「count = 0」から「1」を増加したデータを上書きしたせいです。そのために、3つのスレッドに「count」値にデータを増加したいと思うと値同期化が必要です。</p> 
+  <br> 
+  <p>そのために、3つのスレッドに「count」値にデータを増加したいと思うと値同期化が必要です。</p> 
+  <br> 
+  <pre><code class="cs" data-type="">using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+
+namespace ThreadExample
+{
+    class Program
+    {
+        //メインのプロセススレッドと別のスレッドに動くので終了する前に同期化する必要があります。
+        //そのため、リストの形式で管理する。
+        LinkedList&lt;Thread&gt; threadList = new LinkedList&lt;Thread&gt;();
+        //スレッドのデータを合計
+        int count = 0;
+        /// &lt;summary&gt;
+        /// コンストラクタ
+        /// &lt;/summary&gt;
+        public Program()
+        {
+            //スレッド追加
+            AddThread(ThreadEx, "Test1");
+            AddThread(ThreadEx, "Test2");
+            AddThread(ThreadEx, "Test3");
+
+            StartWatchThread();
+
+            Console.WriteLine("Count - " + count);
+        }
+        /// &lt;summary&gt;
+        /// スレッド追加メソッド
+        /// &lt;/summary&gt;
+        /// &lt;param name="method"&gt;デリゲート名&lt;/param&gt;
+        /// &lt;param name="data"&gt;パラメタ値&lt;/param&gt;
+        private void AddThread(Action&lt;String&gt; method, String data)
+        {
+            //スレッドを割り当て
+            Thread _thread = new Thread(() =&gt; { method(data); });
+            //スレッドを開始
+            _thread.Start();
+            //リストにスレッド追加
+            threadList.AddFirst(_thread);
+        }
+        /// &lt;summary&gt;
+        /// スレッド同期メソッド
+        /// &lt;/summary&gt;
+        private void StartWatchThread()
+        {
+            //threadListにあるスレッドが終わらないと無限ループになります。
+            while (threadList.Count &gt; 0)
+            {
+                if (threadList.First.Value.IsAlive)
+                {
+                    Thread.Sleep(1000);
+                }
+                else
+                {
+                    //スレッドが終わるとリストから削除
+                    threadList.RemoveFirst();
+                }
+            }
+            //threadListにスレッドがなくなると終わり
+        }
+        /// &lt;summary&gt;
+        /// 処理メソッド
+        /// &lt;/summary&gt;
+        /// &lt;param name="name"&gt;&lt;/param&gt;
+        public void ThreadEx(String name)
+        {
+            //iが100までコンソールに出力する。
+            for (int i = 0; i &lt; 100; i++)
+            {
+                //ロックをして各スレッドの同期化をする
+                lock (this)
+                {
+                    int temp = count + i;
+                    Console.WriteLine(String.Format("{0} - {1}", name, i));
+                    count = temp;
+                }
+            }
+        }
+        /// &lt;summary&gt;
+        /// メインメソッド
+        /// &lt;/summary&gt;
+        /// &lt;param name="args"&gt;&lt;/param&gt;
+        static void Main(String[] args)
+        {
+            new Program();
+
+            Console.WriteLine("Press Any Key...");
+            Console.ReadLine();
+        }
+    }
+}
+</code></pre> 
+  <br> 
+  <p style="text-align:left;"><img src="//nowonbun.github.io/googleblog/post201608/20160801/lockExResult.png" style="border:2px solid black;"></p> 
+  <br> 
+  <p>「lock」のキーワードはオブジェクトタイプの対して(int、charタイプはlockを設定できない)「lock」が解けるまで待機するキーワードですが上の例とおりに「lock」を掛けると三つのスレッドで流れてもロックのことで順番通りに処理するので結果が「14850」になる形になります。</p> 
+  <br> 
+  <p>スレッド処理の中で「lock」まで勉強して同期化する方法まで勉強しましたが、スレッドが難しいというのはデッドロックのためです。</p> 
+  <br> 
+  <h2><b><span>DeadLock</span></b></h2> 
+  <br> 
+  <p>デッドロックは二つ以上の処理フローがお互いに終わることを待ち状況になることをデッドロックといいます。</p> 
+  <br> 
+  <pre><code class="cs" data-type="">using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+
+namespace ThreadExample
+{
+    class Program
+    {
+        //メインのプロセススレッドと別のスレッドに動くので終了する前に同期化する必要があります。
+        //そのため、リストの形式で管理する。
+        LinkedList&lt;Thread&gt; threadList = new LinkedList&lt;Thread&gt;();
+        //スレッドのデータを合計
+        int count = 0;
+        int count2 = 0;
+        /// &lt;summary&gt;
+        /// コンストラクタ
+        /// &lt;/summary&gt;
+        public Program()
+        {
+            //スレッド追加
+            AddThread(ThreadEx, "Test1");
+            AddThread(ThreadEx, "Test2");
+            AddThread(ThreadEx, "Test3");
+            
+            StartWatchThread();
+
+            Console.WriteLine("Count - "+count);
+            Console.WriteLine("Count2 - "+count2);
+        }
+        /// &lt;summary&gt;
+        /// スレッド追加メソッド
+        /// &lt;/summary&gt;
+        /// &lt;param name="method"&gt;デリゲート名&lt;/param&gt;
+        /// &lt;param name="data"&gt;パラメタ値&lt;/param&gt;
+        private void AddThread(Action&lt;String&gt; method, String data)
+        {
+            //スレッドを割り当て
+            Thread _thread = new Thread(() =&gt; { method(data); });
+            //スレッドを開始
+            _thread.Start();
+            //リストにスレッド追加
+            threadList.AddFirst(_thread);
+        }
+        /// &lt;summary&gt;
+        /// スレッド同期メソッド
+        /// &lt;/summary&gt;
+        private void StartWatchThread()
+        {
+            //threadListにあるスレッドが終わらないと無限ループになります。
+            while (threadList.Count &gt; 0)
+            {
+                if (threadList.First.Value.IsAlive)
+                {
+                    Thread.Sleep(1000);
+                }
+                else
+                {
+                    //スレッドが終わるとリストから削除
+                    threadList.RemoveFirst();
+                }
+            }
+            //threadListにスレッドがなくなると終わり
+        }
+        /// &lt;summary&gt;
+        /// 処理メソッド
+        /// &lt;/summary&gt;
+        /// &lt;param name="name"&gt;&lt;/param&gt;
+        public void ThreadEx(String name)
+        {
+            //iが100までコンソールに出力する。
+            for (int i = 0; i &lt; 100; i++)
+            {
+                // this -&gt; threadListのロックを解除するまで待つ。
+                lock (threadList)
+                {
+                    lock (this)
+                    {
+                        int temp = count + i;
+                        Console.WriteLine(String.Format("{0} - {1}", name, i));
+                        count = temp;
+                    }
+                }
+                // threadList -&gt; thisのロックを解除するまで待つ。
+                lock (this)
+                {
+                    lock (threadList)
+                    {
+                        int temp = count2 + i;
+                        Console.WriteLine(String.Format("{0} - {1}", name, i));
+                        count2 = temp;
+                    }
+                }
+            }
+        }
+        /// &lt;summary&gt;
+        /// メインメソッド
+        /// &lt;/summary&gt;
+        /// &lt;param name="args"&gt;&lt;/param&gt;
+        static void Main(String[] args)
+        {
+            new Program();
+
+            Console.WriteLine("Press Any Key...");
+            Console.ReadLine();
+        }
+    }
+}</code></pre> 
+  <br> 
+  <p style="text-align:left;"><img src="//nowonbun.github.io/googleblog/post201608/20160801/deadlock.png" style="border:2px solid black;"></p> 
+  <br> 
+  <p>上の例をみるとわざわざにデッドロックを掛けるように実装したので上の通りに実装するかたはいないと思いますが、デッドロックを説明するためにデッドロックが発生するように実装しました。<br> 「ThreadEx」のメソッドをみると「threadList」のロックの下に「this」ロックがあり、次の処理は「this」のロックの下に「threadList」のロックがある状況に実装しました。<br> 上のプログラムを実行するみるととデッドロックに落ちます(プログラムが動かない状況)。なぜなら「threadList → this」のロックは「this」のロックが解けるまでに待つ、「this →　threadList」のロックは「threadList」のロックが解けるまでに待つ状況になるとお互いにロックが解除することを待っている状況になりまして、デッドロックになります。</p> 
+  <p>それで、わざとデッドロックが発生するように実装する方はいないと思いますが、実装ミスかスレッド計算ミスでデッドロックを発生するケースが多いですね。<br> 「デッドロックが発生する時に修正するといいじゃない」と簡単に思うことができますが、実際にデッドロックが発生するように実装すると一定的に発生することではなく、起きる時もあるし起きない時もあるし、ロックのブロックが大きくなればデッドロック発生部分を知らない時もあるし、流れは止まってないがリックが発生してサーバが落ちるケースもあるので、原因不明になって直すことが簡単にできない可能性があります。(サーバ落ちる問題なら、全ソースをレビューするときもあります。）</p> 
+ </body>
+</html></div>
+				<hr />
+				<div class="list-meta ie-dotum">
+					<span class="timeago ff-h dt-published tag-column" id="article_tag"> #C#スターディー </span>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript" src="./js/postscreen.js"></script>
+	</div>
+	<div id="ImgModal" class="modal">
+		<span class="close img-type">&times;</span> <img class="modal-content">
+	</div>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+	<script src="./js/highlightjs-line-numbers.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<script>hljs.initLineNumbersOnLoad();</script>
+</body>
+</html>

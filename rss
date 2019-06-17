@@ -1,4 +1,68 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:taxo="http://purl.org/rss/1.0/modules/taxonomy/" xmlns:activity="http://activitystrea.ms/spec/1.0/" ><channel><title>明月の開発ストーリ</title><link>https://nowonbun.github.io/BlogTest</link><description>Test</description><language>ja</language><pubDate>Fri, 14 Jun 2019 19:43:01 +0900</pubDate><generator>nowonbun@gmail.com</generator><managingEditor>nowonbun@gmail.com</managingEditor><webMaster>nowonbun@gmail.com</webMaster><item><title>total test</title><link>https://nowonbun.github.io/BlogTest/18.html</link><description>okok</description><category>Study / php</category><author>nowonbun@gmail.com</author><guid>https://nowonbun.github.io/BlogTest/18.html</guid><pubDate>Thu, 13 Jun 2019 20:29:38 +0900</pubDate></item><item><title>seok hello world</title><link>https://nowonbun.github.io/BlogTest/17.html</link><description>hahahahahahahahah</description><category>Dev / Java</category><author>nowonbun@gmail.com</author><guid>https://nowonbun.github.io/BlogTest/17.html</guid><pubDate>Fri, 7 Jun 2019 22:13:50 +0900</pubDate></item><item><title>gitに行きましょうか</title><link>https://nowonbun.github.io/BlogTest/16.html</link><description>よしお疲れ様です。 20190520.zip</description><category>Dev / Java</category><author>nowonbun@gmail.com</author><guid>https://nowonbun.github.io/BlogTest/16.html</guid><pubDate>Fri, 7 Jun 2019 20:22:31 +0900</pubDate></item><item><title>テストでございます</title><link>https://nowonbun.github.io/BlogTest/15.html</link><description>てｓつおｓだｓｄｆさｄｆあｄｆさｄふぁｓｄｆｓｄさｄｆさｄｆ</description><category>Dev / Java</category><author>nowonbun@gmail.com</author><guid>https://nowonbun.github.io/BlogTest/15.html</guid><pubDate>Fri, 7 Jun 2019 20:14:58 +0900</pubDate></item><item><title>git test</title><link>https://nowonbun.github.io/BlogTest/14.html</link><description>git testテストでございます</description><category>Dev / Java</category><author>nowonbun@gmail.com</author><guid>https://nowonbun.github.io/BlogTest/14.html</guid><pubDate>Wed, 5 Jun 2019 20:32:10 +0900</pubDate></item><item><title>Test git hub</title><link>https://nowonbun.github.io/BlogTest/13.html</link><description>ギットテストでございます。テストテスト</description><category>Dev / Java</category><author>nowonbun@gmail.com</author><guid>https://nowonbun.github.io/BlogTest/13.html</guid><pubDate>Wed, 5 Jun 2019 20:16:02 +0900</pubDate></item><item><title>TEST git test</title><link>https://nowonbun.github.io/BlogTest/12.html</link><description>testtesttestestseset</description><category>Dev / Java</category><author>nowonbun@gmail.com</author><guid>https://nowonbun.github.io/BlogTest/12.html</guid><pubDate>Tue, 4 Jun 2019 20:12:39 +0900</pubDate></item><item><title>TESTしましょう</title><link>https://nowonbun.github.io/BlogTest/11.html</link><description>テスト</description><category>Dev / Java</category><author>nowonbun@gmail.com</author><guid>https://nowonbun.github.io/BlogTest/11.html</guid><pubDate>Fri, 31 May 2019 19:25:10 +0900</pubDate></item><item><title>和光市。。ははは。</title><link>https://nowonbun.github.io/BlogTest/10.html</link><description>テストでございます。ございます 20190520.zip</description><category>Other</category><author>nowonbun@gmail.com</author><guid>https://nowonbun.github.io/BlogTest/10.html</guid><pubDate>Tue, 4 Jun 2019 07:19:43 +0900</pubDate></item><item><title>テストです。今は和光市</title><link>https://nowonbun.github.io/BlogTest/9.html</link><description>和光市でございます。</description><category>Other</category><author>nowonbun@gmail.com</author><guid>https://nowonbun.github.io/BlogTest/9.html</guid><pubDate>Fri, 24 May 2019 21:06:08 +0900</pubDate></item><item><title>テストでございます。</title><link>https://nowonbun.github.io/BlogTest/8.html</link><description>なにこれ・！！！</description><category>Dev / C#</category><author>nowonbun@gmail.com</author><guid>https://nowonbun.github.io/BlogTest/8.html</guid><pubDate>Thu, 23 May 2019 20:35:48 +0900</pubDate></item><item><title>タグテストです。java</title><link>https://nowonbun.github.io/BlogTest/7.html</link><description>
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:taxo="http://purl.org/rss/1.0/modules/taxonomy/" xmlns:activity="http://activitystrea.ms/spec/1.0/" ><channel><title>明月の開発ストーリ</title><link>https://nowonbun.github.io/BlogTest</link><description>Test</description><language>ja</language><pubDate>Tue, 18 Jun 2019 07:31:40 +0900</pubDate><generator>nowonbun@gmail.com</generator><managingEditor>nowonbun@gmail.com</managingEditor><webMaster>nowonbun@gmail.com</webMaster><item><title>[C#] Thread(スレッド)</title><link>https://nowonbun.github.io/BlogTest/20.html</link><description>
+こんにちは。明月です。
+今日は「thread」(スレッド)に関して勉強します。
+
+thread(スレッド)
+
+プログラムを扱ってある方なら、特にアプリの関して開発したことがある方ならスレッドについて一回以上に聞いたことがあると思います。
+スレッドを定義するとプログラムを実行する最小の単位として一つのプロセス(プログラム)の中で一つ以上のスレッドを動かすことができまして並列処理をするように作成する要素だと思います。
+
+
+msdnリンク - thread(スレッド)
+
+説明が難しいですが、例を通って続きます。
+
+
+ 
+using system;
+using system.collections.generic;
+using system.linq;
+using system.text;
+using system.threading;
+
+namespace threadexample
+{
+    class program
+    {
+        /// &lt;summary&gt;
+        /// コンストラクタ
+        /// &lt;/summary&gt;
+        public program()
+        {
+            //test1 - 0 から test1 - 100まで出力する。
+            threadex("test1");
+            //test2 - 0 から test2 - 100まで出力する。
+            threadex("test2");
+            //test3 - 0 から test3 - 100まで出力する。
+            threadex("test3");
+        }
+        /// &lt;summary&gt;
+        /// コンストラクタから呼ばれるメソッド
+        /// &lt;/summary&gt;
+        /// &lt;param name="name"&gt;&lt;/param&gt;
+        public void threadex(string name)
+        {
+            //iが100までコンソールに出力する。
+            for (int </description><category>Dev / Java</category><author>nowonbun@gmail.com</author><guid>https://nowonbun.github.io/BlogTest/20.html</guid><pubDate>Fri, 14 Jun 2019 19:51:26 +0900</pubDate></item><item><title>初めに</title><link>https://nowonbun.github.io/BlogTest/19.html</link><description> こんにちは。明月(めいげつ）と申します。
+
+ いよいよブログを開設してブログの中で投稿が始まりました。投稿した記事は一つですが、実際にブログの企画して今のブログを作ったのは1年が係りましたよね。
+考えば去年１月ごろにブログを開設してアンドロイド関係の記事を投稿しましたが、途中でブログが可笑しくなって(イメージがすべてなくなりました。後で原因は見つけたんですが、もう回復ができない状況になりました。)閉鎖しました。その時からしばらく諦めて今年からまた企画し、今まで開設してきました。本番は今からと思いますが、頑張りますね。
+
+さて簡単に自己紹介をします。
+
+筆者はプログラム経歴は今年で約10年になります。主に使う言語はjavaです。ただ主に使うことで、できる言語はc/c++、c#、ウェブではphp、asp.net、jspなどできますね。
+勤務している業界はsi業界です。経験したプロジェクトは金融、電気、新聞、料金、保険、広告などがあります。逆に不動産、公共プロジェクト、建設、ゲームなどは経験がありませんね。(やりたいです。案件があればやらせてください。）
+
+プロジェクトの中で様々なポジションがあると思いますが、私の場合はマネジャーポジションより開発ができるところあるいはすべてのプロジェクトソース管理ができるポジションが似合うと思います。でも、成長するためにはマネジャーポジションの経験が重要ですね。(涙)
+ 
+今までの記事を読みながら気づいた方もいらっしゃると思いますが筆者は日本人ではなく韓国人ですね。それで少し日本語が読みにくい部分やおかしい部分があると思いますが遠慮なく指摘をお願いします。
+今後から日本の開発方法と韓国の開発方法について質問があれば、知ってる内に答えします。(でも、開発方法は大体に同じだと思いますが。。。)
+
+ 
+筆者がこのブログで得たいものは日本のit業界の方とコミュニケーション、情報などを共有させたい、または交流したいことが一番の目的ですね。
+これから頑張ってブログを運営するつもりなので、よろしくお願いします。
+
+2016年5月8日　明月</description><category>Other</category><author>nowonbun@gmail.com</author><guid>https://nowonbun.github.io/BlogTest/19.html</guid><pubDate>Fri, 14 Jun 2019 19:47:16 +0900</pubDate></item><item><title>total test</title><link>https://nowonbun.github.io/BlogTest/18.html</link><description>okok</description><category>Study / php</category><author>nowonbun@gmail.com</author><guid>https://nowonbun.github.io/BlogTest/18.html</guid><pubDate>Thu, 13 Jun 2019 20:29:38 +0900</pubDate></item><item><title>seok hello world</title><link>https://nowonbun.github.io/BlogTest/17.html</link><description>hahahahahahahahah</description><category>Dev / Java</category><author>nowonbun@gmail.com</author><guid>https://nowonbun.github.io/BlogTest/17.html</guid><pubDate>Fri, 7 Jun 2019 22:13:50 +0900</pubDate></item><item><title>gitに行きましょうか</title><link>https://nowonbun.github.io/BlogTest/16.html</link><description>よしお疲れ様です。 20190520.zip</description><category>Dev / Java</category><author>nowonbun@gmail.com</author><guid>https://nowonbun.github.io/BlogTest/16.html</guid><pubDate>Fri, 7 Jun 2019 20:22:31 +0900</pubDate></item><item><title>テストでございます</title><link>https://nowonbun.github.io/BlogTest/15.html</link><description>てｓつおｓだｓｄｆさｄｆあｄｆさｄふぁｓｄｆｓｄさｄｆさｄｆ</description><category>Dev / Java</category><author>nowonbun@gmail.com</author><guid>https://nowonbun.github.io/BlogTest/15.html</guid><pubDate>Fri, 7 Jun 2019 20:14:58 +0900</pubDate></item><item><title>git test</title><link>https://nowonbun.github.io/BlogTest/14.html</link><description>git testテストでございます</description><category>Dev / Java</category><author>nowonbun@gmail.com</author><guid>https://nowonbun.github.io/BlogTest/14.html</guid><pubDate>Wed, 5 Jun 2019 20:32:10 +0900</pubDate></item><item><title>Test git hub</title><link>https://nowonbun.github.io/BlogTest/13.html</link><description>ギットテストでございます。テストテスト</description><category>Dev / Java</category><author>nowonbun@gmail.com</author><guid>https://nowonbun.github.io/BlogTest/13.html</guid><pubDate>Wed, 5 Jun 2019 20:16:02 +0900</pubDate></item><item><title>TEST git test</title><link>https://nowonbun.github.io/BlogTest/12.html</link><description>testtesttestestseset</description><category>Dev / Java</category><author>nowonbun@gmail.com</author><guid>https://nowonbun.github.io/BlogTest/12.html</guid><pubDate>Tue, 4 Jun 2019 20:12:39 +0900</pubDate></item><item><title>TESTしましょう</title><link>https://nowonbun.github.io/BlogTest/11.html</link><description>テスト</description><category>Dev / Java</category><author>nowonbun@gmail.com</author><guid>https://nowonbun.github.io/BlogTest/11.html</guid><pubDate>Fri, 31 May 2019 19:25:10 +0900</pubDate></item><item><title>和光市。。ははは。</title><link>https://nowonbun.github.io/BlogTest/10.html</link><description>テストでございます。ございます 20190520.zip</description><category>Other</category><author>nowonbun@gmail.com</author><guid>https://nowonbun.github.io/BlogTest/10.html</guid><pubDate>Tue, 4 Jun 2019 07:19:43 +0900</pubDate></item><item><title>テストです。今は和光市</title><link>https://nowonbun.github.io/BlogTest/9.html</link><description>和光市でございます。</description><category>Other</category><author>nowonbun@gmail.com</author><guid>https://nowonbun.github.io/BlogTest/9.html</guid><pubDate>Fri, 24 May 2019 21:06:08 +0900</pubDate></item><item><title>テストでございます。</title><link>https://nowonbun.github.io/BlogTest/8.html</link><description>なにこれ・！！！</description><category>Dev / C#</category><author>nowonbun@gmail.com</author><guid>https://nowonbun.github.io/BlogTest/8.html</guid><pubDate>Thu, 23 May 2019 20:35:48 +0900</pubDate></item><item><title>タグテストです。java</title><link>https://nowonbun.github.io/BlogTest/7.html</link><description>
 			
 			
 			ごれはなんですか？aaa
