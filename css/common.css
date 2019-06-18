@@ -334,6 +334,9 @@ article>div.searchListEntity>div.list-body a.list-link>p.list-summary {
 		font-size: 0.9rem;
 		margin-bottom: 10px;
 	}
+	article>div.searchListEntity {
+	    padding: 0px 10px;
+	}
 	article>div.searchListEntity>div.list-body a.list-link>h5 {
 		font-size: 1.1rem;
 		margin-top: 10px;
@@ -372,13 +375,13 @@ article>div.searchListEntity>div.list-body a.list-link>p.list-summary {
 		display: none;
 	}
 	.main-container {
-		margin-left: calc(( 100vw - 1200px)/2+ 300px);
+		margin-left: calc(( 100vw - 1200px) / 2 + 300px);
 	}
 	aside.leftside {
 		display: block;
 		/*top: 70px;*/
 		height: calc(100vh);
-		left: calc(( 100vw/ 2)- 615px);
+		left: calc(( 100vw/ 2) - 615px);
 	}
 	.menu-close {
 		display: none;
