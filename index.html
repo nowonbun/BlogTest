@@ -50,7 +50,7 @@
 			<button class="btn btn-outline-success my-2 my-sm-0 search-btn" type="submit">Search</button>
 		</div>
 		<div class="side-list">
-			<ul class="side-nav"><li class=""><a class="link_item link-item-collapse category-item" href="javascript:void(0)">Dev<span class="fa fa-chevron-down pull-right"></span></a><ul class="sub_category_list off"><li class=""><a class="link_sub_item category-item" data-code="0101" href="./?category=0101">Java</a></li><li class=""><a class="link_sub_item category-item" data-code="0102" href="./?category=0102">C#</a></li></ul></li><li class=""><a class="link_item link-item-collapse category-item" data-code="9900" href="./?category=9900">Other</a></li><li class=""><a class="link_item link-item-collapse category-item" href="javascript:void(0)">Study<span class="fa fa-chevron-down pull-right"></span></a><ul class="sub_category_list off"><li class=""><a class="link_sub_item category-item" data-code="0201" href="./?category=0201">php</a></li><li class=""><a class="link_sub_item category-item" data-code="0202" href="./?category=0202">python</a></li></ul></li>
+			<ul class="side-nav"><li class=""><a class="link_item link-item-collapse category-item" href="javascript:void(0)">Devlopment note<span class="fa fa-chevron-up pull-right"></span></a><ul class="sub_category_list"><li class=""><a class="link_sub_item category-item" data-code="0101" href="./?category=0101">C, C++, MFC</a></li><li class=""><a class="link_sub_item category-item" data-code="0102" href="./?category=0102">C#</a></li><li class=""><a class="link_sub_item category-item" data-code="0103" href="./?category=0103">Java</a></li><li class=""><a class="link_sub_item category-item" data-code="0104" href="./?category=0104">Javascript, Jquery, Css</a></li><li class=""><a class="link_sub_item category-item" data-code="0105" href="./?category=0105">Window</a></li><li class=""><a class="link_sub_item category-item" data-code="0106" href="./?category=0106">Linux</a></li><li class=""><a class="link_sub_item category-item" data-code="0107" href="./?category=0107">Etc.</a></li></ul></li><li class=""><a class="link_item link-item-collapse category-item" href="javascript:void(0)">Study<span class="fa fa-chevron-up pull-right"></span></a><ul class="sub_category_list"><li class=""><a class="link_sub_item category-item" data-code="0201" href="./?category=0201">C, C++, MFC</a></li><li class=""><a class="link_sub_item category-item" data-code="0202" href="./?category=0202">C#</a></li><li class=""><a class="link_sub_item category-item" data-code="0203" href="./?category=0203">Java</a></li><li class=""><a class="link_sub_item category-item" data-code="0204" href="./?category=0204">Javascript, Jquery, Css</a></li><li class=""><a class="link_sub_item category-item" data-code="0205" href="./?category=0205">PHP</a></li><li class=""><a class="link_sub_item category-item" data-code="0206" href="./?category=0206">Python</a></li><li class=""><a class="link_sub_item category-item" data-code="0207" href="./?category=0207">Database</a></li><li class=""><a class="link_sub_item category-item" data-code="0208" href="./?category=0208">Design pattern</a></li><li class=""><a class="link_sub_item category-item" data-code="0209" href="./?category=0209">Algorithm</a></li></ul></li><li class=""><a class="link_item link-item-collapse category-item" data-code="0300" href="./?category=0300">Open source</a></li><li class=""><a class="link_item link-item-collapse category-item" data-code="0400" href="./?category=0400">Project</a></li><li class=""><a class="link_item link-item-collapse category-item" data-code="0500" href="./?category=0500">Experience</a></li><li class=""><a class="link_item link-item-collapse category-item" data-code="0600" href="./?category=0600">Other</a></li>
 			</ul>
 		</div>
 	</aside>
@@ -66,39 +66,50 @@
 					検索件数 : <span id="searchResultCount"></span> 件
 				</p>
 			</div>
-			<div class="list-area"></div>
-		</div>
-		<template class="list-article">
-		<article class="list-item">
-			<div class="list-row pos-right ratio-fixed ratio-4by3 crop-center lts-narrow fouc clearfix searchListEntity">
-				<div class="list-body" style="width: 100%;">
-					<div class="flexbox">
-						<a class="list-link" href="">
-							<h5 class="list-head ie-nanum ci-link"></h5>
-							<p class="list-summary"></p>
-						</a>
-						<div class="list-meta ie-dotum">
-							<p>
-								<a href="" class="p-category ci-color"></a>
-							</p>
-							<p>
-								<span class="timeago ff-h dt-published tag-column"></span>
-							</p>
-							<p>
-								<span class="data-column-label">作成日付 :</span> 
-								<span class="timeago ff-h dt-published date-column create-date"></span> 
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-								<span class="data-column-label">修正日付	:</span> 
-								<span class="timeago ff-h dt-published date-column update-date"></span>
-							</p>
-						</div>
-					</div>
-				</div>
+			<div class="list-area">
+				<article class="list-item" data-category-code="0101"><div class="list-row pos-right ratio-fixed ratio-4by3 crop-center lts-narrow fouc clearfix searchListEntity"><div class="list-body" style="width: 100%;"><div class="flexbox"><a class="list-link" href="./1.html"><h5 class="list-head ie-nanum ci-link">TEST</h5><p class="list-summary">
+こんにちは。明月です。
+今日はdelegate(デリゲート)について勉強しましょう。
+
+前に筆者がoop(オブジェクト指向プログラム)について説明したことがあります。oopの特徴はカプセル、継承、抽象、ポリモーフィズムによってクラス単位でデータを扱う方法です。
+そのことによってプログラムを設計する時に何のデータを受け取ってどんな処理するし、どんな結果あるいはデータを出力する流れを作成するのができます。
+
+oopの概念はオブジェクトの流れとしては定義していますが処理する方法には定義してないです。それで一から最後まで流れを決めてプログラミングするのでプログラムの性能が制限的になるし並列処理の実装が難しくなります。
+
+そのため、最近のプログラム言語のパラダイムは関数型のプログラムになりました。関数型のプログラムの理論は昔からありましたが、実装が難しい短所でよく使えませんでしだが、最近は関数型言語も誕生したし、方法でも前より発展してc#にも「.net framework3.0」が文法から並立処理、匿名メソッド、lamdaが追加されました。
+それで今日はc#の関数型のプログラムの初めの「delegate」について勉強します。「delegate」のキーワードは初期c#モデルからも使えますが、匿名メソッド、lamda式は「.net framework 3.0」から使用できます。
+
+delegate
+
+「delegate」は意味とおりに代理子です。すなわち、メソッドの抽象だと思えば理解しやすいと思いますが、メソッドを「delegate」を利用して一つのタイプに変換して呼び出す方法です。
+
+
+ 
+class クラス名
+{
+ アクセス修飾子 delegate データタイプ デリゲート名(パラメタ);
+}
+
+
+
+
+ 
+﻿using system;
+using system.collections.generic;
+using system.linq;
+using system.text;
+using system.threading.tasks;
+
+namespace delegateex
+{
+    class delegateex
+    {
+        //デリゲート
+        private delegate void testdelegate(string data);
+        private l</p></a><div class="list-meta ie-dotum"><p><a href="./search.html?category=0101" class="p-category ci-color">Devlopment note / C, C++, MFC</a></p><p><span class="timeago ff-h dt-published tag-column"></span></p><p><span class="data-column-label">作成日付 :</span><span class="timeago ff-h dt-published date-column create-date">2019/06/25 20:54:42</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="data-column-label">修正日付	:</span><span class="timeago ff-h dt-published date-column update-date">2019/06/25 20:54:42</span></p></div></div></div></div></article>
 			</div>
-		</article>
-		</template>
-		<input type="hidden" id="JsonFileName" value="main.json">
-		<script type="text/javascript" src="./js/mainscreen.js"></script>
+		</div>
+		<script type="text/javascript" src="./js/searchscreen.js"></script>
 	</div>
 	<footer>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 footer-bottom">

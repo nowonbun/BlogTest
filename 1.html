@@ -51,7 +51,7 @@
 			<button class="btn btn-outline-success my-2 my-sm-0 search-btn" type="submit">Search</button>
 		</div>
 		<div class="side-list">
-			<ul class="side-nav"><li class=""><a class="link_item link-item-collapse category-item" href="javascript:void(0)">Dev<span class="fa fa-chevron-down pull-right"></span></a><ul class="sub_category_list off"><li class=""><a class="link_sub_item category-item" data-code="0101" href="./?category=0101">Java</a></li><li class=""><a class="link_sub_item category-item" data-code="0102" href="./?category=0102">C#</a></li></ul></li><li class=""><a class="link_item link-item-collapse category-item" data-code="9900" href="./?category=9900">Other</a></li><li class=""><a class="link_item link-item-collapse category-item" href="javascript:void(0)">Study<span class="fa fa-chevron-down pull-right"></span></a><ul class="sub_category_list off"><li class=""><a class="link_sub_item category-item" data-code="0201" href="./?category=0201">php</a></li><li class=""><a class="link_sub_item category-item" data-code="0202" href="./?category=0202">python</a></li></ul></li>
+			<ul class="side-nav"><li class=""><a class="link_item link-item-collapse category-item" href="javascript:void(0)">Devlopment note<span class="fa fa-chevron-up pull-right"></span></a><ul class="sub_category_list"><li class=""><a class="link_sub_item category-item" data-code="0101" href="./?category=0101">C, C++, MFC</a></li><li class=""><a class="link_sub_item category-item" data-code="0102" href="./?category=0102">C#</a></li><li class=""><a class="link_sub_item category-item" data-code="0103" href="./?category=0103">Java</a></li><li class=""><a class="link_sub_item category-item" data-code="0104" href="./?category=0104">Javascript, Jquery, Css</a></li><li class=""><a class="link_sub_item category-item" data-code="0105" href="./?category=0105">Window</a></li><li class=""><a class="link_sub_item category-item" data-code="0106" href="./?category=0106">Linux</a></li><li class=""><a class="link_sub_item category-item" data-code="0107" href="./?category=0107">Etc.</a></li></ul></li><li class=""><a class="link_item link-item-collapse category-item" href="javascript:void(0)">Study<span class="fa fa-chevron-up pull-right"></span></a><ul class="sub_category_list"><li class=""><a class="link_sub_item category-item" data-code="0201" href="./?category=0201">C, C++, MFC</a></li><li class=""><a class="link_sub_item category-item" data-code="0202" href="./?category=0202">C#</a></li><li class=""><a class="link_sub_item category-item" data-code="0203" href="./?category=0203">Java</a></li><li class=""><a class="link_sub_item category-item" data-code="0204" href="./?category=0204">Javascript, Jquery, Css</a></li><li class=""><a class="link_sub_item category-item" data-code="0205" href="./?category=0205">PHP</a></li><li class=""><a class="link_sub_item category-item" data-code="0206" href="./?category=0206">Python</a></li><li class=""><a class="link_sub_item category-item" data-code="0207" href="./?category=0207">Database</a></li><li class=""><a class="link_sub_item category-item" data-code="0208" href="./?category=0208">Design pattern</a></li><li class=""><a class="link_sub_item category-item" data-code="0209" href="./?category=0209">Algorithm</a></li></ul></li><li class=""><a class="link_item link-item-collapse category-item" data-code="0300" href="./?category=0300">Open source</a></li><li class=""><a class="link_item link-item-collapse category-item" data-code="0400" href="./?category=0400">Project</a></li><li class=""><a class="link_item link-item-collapse category-item" data-code="0500" href="./?category=0500">Experience</a></li><li class=""><a class="link_item link-item-collapse category-item" data-code="0600" href="./?category=0600">Other</a></li>
 			</ul>
 		</div>
 	</aside>
@@ -65,19 +65,238 @@
 				</div>
 				<hr class="titileHr">
 				<div class="categoryArea">
-					<a href="./?category=0101">Dev / Java</a> &nbsp;&nbsp; 作成日付 : 2019/05/21 19:46:40 &nbsp;&nbsp;修正日付 : 2019/05/21 19:46:40
+					<a href="./?category=0101">Devlopment note / C, C++, MFC</a> &nbsp;&nbsp; 作成日付 : 2019/06/25 20:54:42 &nbsp;&nbsp;修正日付 : 2019/06/25 20:54:42
 				</div>
 			</div>
 			<div class="article">
 				<div class="tt_article_useless_p_margin" id="article_contents"><html>
  <head></head>
  <body>
-  <p>TEST</p>
+  <p style="text-align:center;display:none;" class="titleImage"><img src="//nowonbun.github.io/googleblog/csharp.png" style="border:2px solid black;"></p> 
+  <p>こんにちは。明月です。<br> 今日はdelegate(デリゲート)について勉強しましょう。</p> 
+  <br> 
+  <p>前に筆者がOOP(オブジェクト指向プログラム)について説明したことがあります。OOPの特徴はカプセル、継承、抽象、ポリモーフィズムによってクラス単位でデータを扱う方法です。<br> そのことによってプログラムを設計する時に何のデータを受け取ってどんな処理するし、どんな結果あるいはデータを出力する流れを作成するのができます。</p> 
+  <br> 
+  <p>OOPの概念はオブジェクトの流れとしては定義していますが処理する方法には定義してないです。それで一から最後まで流れを決めてプログラミングするのでプログラムの性能が制限的になるし並列処理の実装が難しくなります。</p> 
+  <br> 
+  <p>そのため、最近のプログラム言語のパラダイムは関数型のプログラムになりました。関数型のプログラムの理論は昔からありましたが、実装が難しい短所でよく使えませんでしだが、最近は関数型言語も誕生したし、方法でも前より発展してC#にも「.Net Framework3.0」が文法から並立処理、匿名メソッド、Lamdaが追加されました。<br> それで今日はC#の関数型のプログラムの初めの「delegate」について勉強します。「delegate」のキーワードは初期C#モデルからも使えますが、匿名メソッド、Lamda式は「.Net Framework 3.0」から使用できます。</p> 
+  <br> 
+  <h2><b><span>delegate</span></b></h2> 
+  <br> 
+  <p>「delegate」は意味とおりに代理子です。すなわち、メソッドの抽象だと思えば理解しやすいと思いますが、メソッドを「delegate」を利用して一つのタイプに変換して呼び出す方法です。</p> 
+  <br> 
+  <div style="border-style:solid;" class="sourcecode"> 
+   <textarea name="code" class="brush:csharp;"> 
+class クラス名
+{
+ アクセス修飾子 delegate データタイプ デリゲート名(パラメタ);
+}
+</textarea> 
+  </div> 
+  <br> 
+  <div style="border-style:solid;" class="sourcecode"> 
+   <textarea name="code" class="brush:csharp;"> 
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace delegateEx
+{
+    class delegateEx
+    {
+        //デリゲート
+        private delegate void TestDelegate(String data);
+        private List&lt;TestDelegate&gt; list = new List&lt;TestDelegate&gt;();
+
+        //デリゲートと形が同様なメソッド
+        public void TestMethod(String data)
+        {
+            Console.WriteLine("TestMethod "+data);
+        }
+        //デリゲートと形が同様なメソッド
+        public void TestMethod1(String data)
+        {
+            Console.WriteLine("TestMethod1 " + data);
+        }
+        //デリゲートと形が同様なメソッド
+        public void TestMethod2(String data)
+        {
+            Console.WriteLine("TestMethod2 " + data);
+        }
+        public delegateEx()
+        {
+            //デリゲートリストに格納
+            //基本的デリゲートを「new」キーワードで宣言する。(TestMethod(String data)登録)
+            list.Add(new TestDelegate(TestMethod));
+            //「new」キーワード省略してメソッド名だけ登録が出来る。(TestMethod1(String data)登録)
+            list.Add(TestMethod1);
+            // TestMethod2(String data)登録
+            list.Add(TestMethod2);
+        }
+        public void Run(String data)
+        {
+            //リストループで各デリゲート呼出す。
+            foreach(TestDelegate item in list)
+            {
+                item(data);
+            }
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            delegateEx dele = new delegateEx();
+            //デリゲート呼出す。
+            //予想実行流れ : TestMethod(String data) → TestMethod1(String data) → TestMethod2(String data)
+            dele.Run("TEST");
+
+            Console.WriteLine("Press Any Key...");
+            Console.ReadLine();
+        }
+    }
+}
+</textarea> 
+  </div> 
+  <br> 
+  <p style="text-align:left;"><img src="//nowonbun.github.io/googleblog/post20160603/delegate1.jpg" style="border:2px solid black;"></p> 
+  <br> 
+  <p>上の例を見ると「delegate」を通ってメソッドを呼び出します。「TestMethod」「TestMethod1」「TestMethod2」は別のメソッドですが、呼び出すのはリストに結んで一括で呼び出せます。</p> 
+  <br> 
+  <h2><b><span>delegateフィールド</span></b></h2> 
+  <br> 
+  <p>「delegate」はメソッドを代理に呼び出すの意味は理解しました。デリゲートはメソッドを抽象(?)してメソッドを纏めって使う方法なのでいつもリストと一緒に使うはずです。<br> 「delegate」フィールドはそのデリゲートリスト代わりに「デリゲート」をリストらしく格納できられるものです。</p> 
+  <br> 
+  <div style="border-style:solid;" class="sourcecode"> 
+   <textarea name="code" class="brush:csharp;">
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace delegateEx
+{
+    class delegateEx
+    {
+        //デリゲート
+        private delegate void TestDelegate(String data);
+        //private List&lt;TestDelegate&gt; list = new List&lt;TestDelegate&gt;();
+        //リストではなくデリゲートフィールド宣言
+        private TestDelegate delegateField;
+
+        //デリゲートと形が同様なメソッド
+        public void TestMethod(String data)
+        {
+            Console.WriteLine("TestMethod "+data);
+        }
+        //デリゲートと形が同様なメソッド
+        public void TestMethod1(String data)
+        {
+            Console.WriteLine("TestMethod1 " + data);
+        }
+        //デリゲートと形が同様なメソッド
+        public void TestMethod2(String data)
+        {
+            Console.WriteLine("TestMethod2 " + data);
+        }
+        public delegateEx()
+        {
+            //delegateフィールドに格納
+            //基本的デリゲートを「new」キーワードで宣言する。(TestMethod(String data)登録)
+            delegateField += TestMethod;
+            //「new」キーワード省略してメソッド名だけ登録が出来る。(TestMethod1(String data)登録)
+            delegateField += TestMethod1;
+            // TestMethod2(String data)登録
+            delegateField += TestMethod2;
+        }
+        public void Run(String data)
+        {
+            //delegateフィールド呼出す
+            delegateField(data);   
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            delegateEx dele = new delegateEx();
+            //デリゲート呼出す。
+            //予想実行流れ : TestMethod(String data) → TestMethod1(String data) → TestMethod2(String data)
+            dele.Run("DelegateField");
+
+            Console.WriteLine("Press Any Key...");
+            Console.ReadLine();
+        }
+    }
+} 
+</textarea> 
+  </div> 
+  <br> 
+  <p style="text-align:left;" id="anonymous"><img src="//nowonbun.github.io/googleblog/post20160603/delegate2.jpg" style="border:2px solid black;"></p> 
+  <br> 
+  <h2><b><span>匿名メソッド</span></b></h2> 
+  <br> 
+  <p>今までメソッドはメソッドの型を実装した後呼び出して使うことで勉強しました。でもメソッドをデリゲートで使うことならメソッド名が必要ではない場合もあると思います。そのみたいにメソッド型が有りず、実装だけあるメソッドを匿名メソッドということがあります。</p> 
+  <br> 
+  <div style="border-style:solid;" class="sourcecode"> 
+   <textarea name="code" class="brush:csharp;">
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace delegateEx
+{
+    class delegateEx
+    {
+        //デリゲート
+        private delegate void TestDelegate(String data);
+        //デリゲートフィールド宣言
+        private TestDelegate delegateField;
+
+        public delegateEx()
+        {
+            //デリゲートに匿名メソッドを追加
+            delegateField += delegate (String data1)
+            {
+                Console.WriteLine("Anonymous " + data1);
+            };
+        }
+        public void Run(String data)
+        {
+            //デリゲートフィールドを呼出す。
+            delegateField(data);   
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            delegateEx dele = new delegateEx();
+            //デリゲート呼出す。
+            //予想実行流れ : TestMethod(String data) → TestMethod1(String data) → TestMethod2(String data)
+            dele.Run("DelegateField");
+
+            Console.WriteLine("Press Any Key...");
+            Console.ReadLine();
+        }
+    }
+}
+</textarea> 
+  </div> 
+  <br> 
+  <p style="text-align:left;"><img src="//nowonbun.github.io/googleblog/post20160603/delegate3.jpg" style="border:2px solid black;"></p> 
+  <br> 
+  <p>今まで「delegate」について勉強しました。「delegate」は次の投稿から勉強する並列処理(parallel)、ランダ(lamda)、イベント(event)と関係があるので確実に勉強していきましょう。</p>
  </body>
 </html></div>
 				<hr />
 				<div class="list-meta ie-dotum">
-					<span class="timeago ff-h dt-published tag-column" id="article_tag"> ttt,tt </span>
+					<span class="timeago ff-h dt-published tag-column" id="article_tag">  </span>
 				</div>
 			</div>
 		</article>
