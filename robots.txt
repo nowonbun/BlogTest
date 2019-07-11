@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nowonbun.github.io/BlogTest/sitemap.xml
